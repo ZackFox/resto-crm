@@ -1,0 +1,22 @@
+<div class="login">
+  <div *ngIf="errors.length > 0" class="error-message">
+    {{errors}}
+  </div>
+  <form [formGroup]="loginForm" (ngSubmit)="submit()">
+    <div class="form-group">        
+      <mat-form-field>      
+        <input matInput class="form-control" formControlName="email" placeholder="Ваш логин" >            
+      </mat-form-field>    
+    </div>
+    <div class="form-group">        
+      <mat-form-field>
+        <input matInput class="form-control" formControlName="password" placeholder="Ваш пароль" type='password'>
+      </mat-form-field>
+    </div>
+    <button type="submit">Войти</button>
+  </form>  
+</div>
+
+            <!-- <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button> -->
