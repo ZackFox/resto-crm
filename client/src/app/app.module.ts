@@ -6,8 +6,8 @@ import { AppRoutingModule } from "./app-routing.module";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AuthModule } from "./auth/auth.module";
 import { DashboardModule } from "./dashboard/dashboard.module";
-// import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatTabsModule } from "@angular/material/tabs";
+import { fakeBackendProvider } from "./core/fakeBackend.interceptor";
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,9 +17,9 @@ import { MatTabsModule } from "@angular/material/tabs";
     BrowserAnimationsModule,
     MatTabsModule,
     AuthModule,
-    DashboardModule,    
+    DashboardModule,
   ],
-  providers: [],
+  providers: [fakeBackendProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

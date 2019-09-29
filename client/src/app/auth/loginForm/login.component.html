@@ -13,7 +13,7 @@
         <input matInput class="form-control" formControlName="password" placeholder="Ваш пароль" type='password'>
       </mat-form-field>
     </div>
-    <button type="submit">Войти</button>
+    <button type="submit" [disabled]="loginForm.invalid">Войти</button>
   </form>  
 </div>
 

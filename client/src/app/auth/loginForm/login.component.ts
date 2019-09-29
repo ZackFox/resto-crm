@@ -2,7 +2,6 @@ import { Component } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 import { AuthService } from "../auth.service";
-import { Errors } from "../shared/errors.model";
 import { Router } from "@angular/router";
 
 @Component({
@@ -15,7 +14,11 @@ export class LoginComponent {
   isSubmiting: boolean = false;
   errors: string = "";
 
-  constructor(private authService: AuthService, private formBuilder: FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthService,
+    private router: Router,
+  ) {
     this.loginForm = this.formBuilder.group({
       email: ["", Validators.required],
       password: ["", Validators.required],
@@ -29,11 +32,10 @@ export class LoginComponent {
     this.authService.login(this.loginForm.value).subscribe(
       res => {
         this.isSubmiting = false;
-        console.log(res);
+        this.router.navigateByUrl("/dashboard");
       },
       error => {
-        this.errors = error;
-        console.log(error);
+        this.errors = error.message;
       },
     );
   }

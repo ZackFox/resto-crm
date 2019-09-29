@@ -5,12 +5,14 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { HttpClientModule } from "@angular/common/http";
 import { CommonModule } from "@angular/common";
+import { RouterModule } from "@angular/router";
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
     HttpClientModule,
+    RouterModule,
     ReactiveFormsModule,
     MatTabsModule,
     MatFormFieldModule,
@@ -20,6 +22,7 @@ import { CommonModule } from "@angular/common";
   exports: [
     CommonModule,
     HttpClientModule,
+    RouterModule,
     ReactiveFormsModule,
     MatTabsModule,
     MatFormFieldModule,
