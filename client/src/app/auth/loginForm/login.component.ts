@@ -1,27 +1,27 @@
 import { Component } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
-import { AuthService } from "../auth.service";
+import { AuthService } from "../../core/services/auth.service";
 import { Router } from "@angular/router";
 
 @Component({
   selector: "login-form",
   templateUrl: "./login.component.html",
-  styleUrls: ["./login.component.css"],
+  styleUrls: ["./login.component.css"]
 })
 export class LoginComponent {
   loginForm: FormGroup;
-  isSubmiting: boolean = false;
-  errors: string = "";
+  isSubmiting = false;
+  errors = "";
 
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private router: Router,
+    private router: Router
   ) {
     this.loginForm = this.formBuilder.group({
       email: ["", Validators.required],
-      password: ["", Validators.required],
+      password: ["", Validators.required]
     });
   }
 
@@ -36,7 +36,7 @@ export class LoginComponent {
       },
       error => {
         this.errors = error.message;
-      },
+      }
     );
   }
 }
